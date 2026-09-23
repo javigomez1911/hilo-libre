@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="es-MX" data-size="1" data-contrast="normal" data-spacing="normal" data-motion="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hilo Libre · Proveeduría textil hecha por mujeres en prisión y en libertad</title>
+<meta name="description" content="Hilo Libre convierte el estigma en cadena de suministro: uniformes y textiles institucionales producidos por mujeres en prisión y en libertad.">
+<meta name="theme-color" content="#172C50">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,700;1,400&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23172C50'/%3E%3Cpath d='M6 22c6-14 14 6 20-12' fill='none' stroke='%23FFBE2E' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<style>
+/* ============================================================
+   TOKENS · pares de color verificados (WCAG 2.2)
+   tinta/papel 16.1:1 · secundario/papel 8.2:1 · amarillo/azul 8.4:1
+   ============================================================ */
+:root{
+  /* Paleta: mezclilla, cempasuchil y verde milpa: mezclilla, cempasuchil, chile */
+  --indigo-950:#0F1D38; --indigo-900:#172C50; --indigo-800:#20396A; --indigo-700:#24508F; --indigo-600:#24508F;
+  --sun:#FFBE2E; --sun-deep:#D99000; --teal:#08683F; --chile:#D93E17;
+  --paper:#F7F9FC; --tint:#E8EEF7; --tint-2:#D3DFF0;
+  --ink:#111C33; --muted:#3E4C64;
+  --on-dark:#F3F7FC; --on-dark-soft:#C5D3E8;
+  --line:rgba(17,28,51,.22); --focus:#111C33;
+
+  --font-display:"Young Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --font-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,"Segoe UI",system-ui,sans-serif;
+
+  --step--1:clamp(.875rem,.85rem + .12vw,.95rem);
+  --step-0:clamp(1.0625rem,1rem + .3vw,1.1875rem);
+  --step-1:clamp(1.25rem,1.1rem + .6vw,1.5rem);
+  --step-2:clamp(1.55rem,1.25rem + 1.3vw,2.2rem);
+  --step-3:clamp(2rem,1.5rem + 2.4vw,3.4rem);
+  --step-4:clamp(2.5rem,1.6rem + 4.2vw,4.9rem);
+  --num:clamp(2rem,1.3rem + 2.3vw,3.1rem);
+
+  --gut:clamp(1rem,4vw,2.5rem);
+  --max:75rem;
+  --pad:clamp(3rem,6vw,5.25rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --z-sticky:20; --z-panel:40; --z-skip:60;
+}
+html[data-contrast="high"]{
+  --paper:#FFF; --tint:#FFF; --tint-2:#FFF; --ink:#000; --muted:#000;
+  --indigo-600:#0A2A5C; --indigo-700:#0A2A5C; --teal:#004D2E; --line:#000;
+  --indigo-900:#000; --indigo-950:#000; --indigo-800:#000; --on-dark:#FFF; --on-dark-soft:#FFF; --sun:#FFC94D;
+}
+html[data-size="1.15"]{font-size:115%}
+html[data-size="1.3"]{font-size:130%}
+html[data-size="1.5"]{font-size:150%}
+html[data-spacing="wide"] body{letter-spacing:.04em;word-spacing:.16em;line-height:1.9}
+
+/* ============================================================ BASE */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:5rem;overflow-x:clip;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+body{margin:0;overflow-x:clip;max-width:100%;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance;color:var(--indigo-600)}
+p{margin:0 0 1em;text-wrap:pretty;max-width:68ch}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:var(--teal);text-underline-offset:.22em;text-decoration-thickness:.09em}
+a:hover{text-decoration-thickness:.18em}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+.on-dark :focus-visible,.hero :focus-visible,.site-head :focus-visible{outline-color:#FFD98A}
+::selection{background:var(--sun);color:var(--ink)}
+.wrap{width:min(100% - var(--gut)*2,var(--max));margin-inline:auto}
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;left:1rem;top:-6rem;z-index:var(--z-skip);background:var(--sun);color:var(--ink);padding:.9rem 1.2rem;font-weight:700;border-radius:.4rem;text-decoration:none;transition:top .2s var(--ease)}
+.skip:focus{top:1rem}
+.motion-note{position:fixed;left:var(--gut);bottom:1rem;z-index:var(--z-panel);max-width:26rem;background:var(--paper);color:var(--ink);border:2px solid var(--indigo-900);border-radius:.5rem;padding:1rem 1.1rem;box-shadow:0 1rem 2.5rem -1rem rgba(5,12,28,.55);font-size:var(--step--1)}
+.motion-note[hidden]{display:none}
+.motion-note p{margin:0 0 .75rem}
+.motion-note div{display:flex;gap:.5rem;flex-wrap:wrap}
+.motion-note button{min-height:2.75rem;padding:0 1rem;border-radius:.35rem;font:700 var(--step--1) var(--font-body);cursor:pointer;border:2px solid var(--indigo-700)}
+.motion-note .yes{background:var(--indigo-700);color:#fff}
+.motion-note .no{background:transparent;color:var(--indigo-700)}
+#motionHint{font-size:var(--step--1);color:var(--muted);margin:.6rem 0 0;clear:both}
+
+.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:.35rem;font:700 var(--step-0)/1.2 var(--font-body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background-color .2s,box-shadow .25s var(--ease)}
+.btn svg{transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-primary{position:relative;overflow:hidden;background:var(--sun);color:var(--ink);box-shadow:0 .28rem 0 var(--sun-deep)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 .4rem 0 var(--sun-deep)}
+.btn-primary:active{transform:translateY(.2rem);box-shadow:0 .08rem 0 var(--sun-deep)}
+.btn-ghost{color:var(--on-dark);border-color:currentColor;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-indigo{background:var(--indigo-700);color:#fff;box-shadow:0 .28rem 0 var(--indigo-950)}
+.btn-indigo:hover{transform:translateY(-2px)}
+html[data-contrast="high"] .btn-primary{border-color:#000}
+
+/* ============================================================ HEADER */
+.site-head{position:sticky;top:0;z-index:var(--z-sticky);background:var(--indigo-900);color:var(--on-dark)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.brand{display:flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none;font-family:var(--font-display);font-size:1.45rem;min-height:2.75rem;white-space:nowrap}
+.brand svg{width:2rem;height:2rem;flex:none}
+.nav ul{display:flex;gap:.25rem;flex-wrap:wrap}
+.nav a{position:relative;display:inline-flex;align-items:center;min-height:2.75rem;padding:0 .85rem;color:var(--on-dark);text-decoration:none;font-weight:500;font-size:var(--step--1)}
+.nav a::after{content:"";position:absolute;left:.85rem;right:.85rem;bottom:.4rem;height:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover,.nav a[aria-current="true"]{color:#fff}
+.nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
+.head-tools{display:flex;gap:.5rem;align-items:center}
+.a11y-toggle{display:inline-flex;align-items:center;gap:.55rem;min-height:2.75rem;padding:0 1rem;background:transparent;color:var(--on-dark);border:2px solid var(--on-dark-soft);border-radius:.35rem;font:700 var(--step--1)/1 var(--font-body);cursor:pointer}
+.a11y-toggle:hover{background:rgba(255,255,255,.1)}
+.menu-btn{display:none}
+.progress{position:absolute;left:0;bottom:0;height:3px;width:100%;pointer-events:none}
+.progress i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:var(--sun)}
+.needle{position:absolute;bottom:-9px;left:0;width:30px;height:18px;color:var(--sun)}
+@media (max-width:70rem){
+  .menu-btn{display:inline-flex}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--indigo-900);padding:.5rem var(--gut) 1.25rem;border-top:1px solid rgba(255,255,255,.15)}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column}
+  .nav a{width:100%;font-size:var(--step-0)}
+  .a11y-toggle .lbl{display:none}
+  .a11y-toggle{width:2.75rem;justify-content:center;padding:0}
+}
+
+/* Panel de preferencias */
+.panel{position:fixed;right:var(--gut);top:5rem;z-index:var(--z-panel);width:min(24rem,100% - 2rem);max-height:calc(100dvh - 6rem);overflow:auto;background:var(--paper);color:var(--ink);border:2px solid var(--indigo-900);border-radius:.6rem;box-shadow:0 1.5rem 3rem -1rem rgba(5,12,28,.5);padding:1.25rem}
+.panel[hidden]{display:none}
+.panel h2{font-size:1.4rem;margin-bottom:.25rem}
+.panel .hint{font-size:var(--step--1);color:var(--muted);margin-bottom:1rem}
+.panel fieldset{border:0;border-top:1px solid var(--line);margin:0;padding:.9rem 0}
+.panel legend{font-weight:700;padding:0;float:left;width:100%;margin-bottom:.5rem}
+.seg{display:flex;flex-wrap:wrap;gap:.4rem;clear:both}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
+.seg span{display:inline-flex;align-items:center;justify-content:center;min-width:3rem;min-height:2.75rem;padding:0 .9rem;border:2px solid var(--indigo-700);border-radius:.35rem;font-weight:700;font-size:var(--step--1);background:var(--paper);color:var(--indigo-700)}
+.seg input:checked + span{background:var(--indigo-700);color:#fff}
+.seg input:checked + span::before{content:"✓";margin-right:.35rem}
+.seg input:focus-visible + span{outline:3px solid var(--focus);outline-offset:2px}
+.panel .reset{margin-top:.5rem;background:none;border:0;color:var(--teal);font:700 var(--step--1) var(--font-body);text-decoration:underline;cursor:pointer;min-height:2.75rem;padding:0}
+
+/* ============================================================ HERO */
+.hero{min-height:calc(100svh - 4.25rem);display:grid;align-items:center;position:relative;background:var(--indigo-900);color:var(--on-dark);overflow:hidden;isolation:isolate}
+.hero-thread{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero-thread path{fill:none;stroke:var(--sun);stroke-width:2;stroke-dasharray:2 9;stroke-linecap:round;opacity:.5;vector-effect:non-scaling-stroke}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.85fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(1.25rem,4vh,3.5rem);width:min(100% - var(--gut)*2,var(--max))}
+.kicker{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:var(--step--1);color:var(--sun);margin:0 0 clamp(.6rem,2vh,1.1rem)}
+.hero h1{color:#fff;font-size:clamp(2.3rem,min(4.6vw,8.4vh),4.9rem);line-height:1.02;letter-spacing:-.015em}
+.hero h1 em{font-style:normal;color:var(--sun);position:relative;display:inline-block}
+.hero h1 em svg{position:absolute;left:0;bottom:-.2em;width:100%;height:.28em;overflow:visible}
+.hero h1 em path{stroke:var(--sun);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:1 12}
+.hero .lede{font-size:clamp(1.05rem,min(1.7vw,2.7vh),1.4rem);line-height:1.5;color:var(--on-dark);margin:clamp(.9rem,2.6vh,1.6rem) 0 clamp(1rem,3vh,1.9rem);max-width:34ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.9rem 1rem}
+.hero-note{margin-top:clamp(.9rem,2.6vh,1.75rem);font-size:var(--step--1);color:var(--on-dark-soft);max-width:46ch}
+
+.tag-stage{position:relative;justify-self:center;width:min(100%,24rem,calc((100svh - 9rem)*.7));padding-top:clamp(1.6rem,5vh,3rem);margin:0;perspective:900px}
+.tag-thread{position:absolute;left:50%;top:0;width:100%;height:8rem;transform:translateX(-50%);overflow:visible}
+.tag-thread path{fill:none;stroke:var(--sun);stroke-width:3;stroke-linecap:round}
+.tilt{transition:transform .5s var(--ease);transform-style:preserve-3d;will-change:transform}
+.tag{position:relative;background:var(--paper);color:var(--ink);padding:clamp(2.6rem,6vh,3.2rem) 1.4rem 1.3rem;border-radius:.4rem;transform:rotate(-2.5deg);transform-origin:50% 0;box-shadow:0 2rem 3rem -1.5rem rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.1)}
+.tag::before{content:"";position:absolute;top:1rem;left:50%;width:1.3rem;height:1.3rem;margin-left:-.65rem;border-radius:50%;background:var(--indigo-900);box-shadow:inset 0 0 0 3px var(--tint-2)}
+.tag::after{content:"";position:absolute;inset:.55rem;border:2px dashed rgba(36,80,143,.5);border-radius:.25rem;pointer-events:none}
+.tag h2{font-size:1.25rem;margin-bottom:.15rem}
+.tag .sub{font-size:var(--step--1);color:var(--muted);margin:0 0 .8rem}
+.tag dl{margin:0}
+.tag .row{display:flex;justify-content:space-between;gap:.8rem;padding:clamp(.3rem,.9vh,.5rem) 0;border-bottom:1px solid var(--line);font-size:var(--step--1)}
+.tag dt{color:var(--muted)}
+.tag dd{margin:0;font-weight:700;text-align:right}
+.tag .ok{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal)}
+.tag .barcode{position:relative;margin-top:.9rem;height:2rem;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 14px)}
+@media (max-width:52rem){
+  .hero{min-height:0;display:block}
+  .hero .wrap{grid-template-columns:1fr;padding-block:2rem 2.5rem}
+  .tag-stage{justify-self:start;width:min(100%,22rem)}
+  }
+/* sello de inspección sobre la etiqueta */
+.tag-foot{display:flex;align-items:center;gap:1rem;margin-top:.9rem}
+.tag-foot .barcode{flex:1;margin-top:0}
+.stamp{flex:none;transform:rotate(-9deg);border:3px solid var(--teal);border-radius:.4rem;color:var(--teal);padding:.25rem .6rem;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;text-align:center;pointer-events:none}
+.stamp small{display:block;font-size:.62rem;letter-spacing:.2em;font-weight:500}
+
+/* cinta de productos */
+.ticker{position:relative;background:var(--sun);color:var(--ink);overflow:hidden;border-block:2px solid var(--indigo-900)}
+.tk-track{display:flex;width:max-content}
+.tk-list{display:flex;flex-wrap:nowrap;align-items:center}
+.tk-list li{display:flex;align-items:center;white-space:nowrap;font-family:var(--font-display);font-size:clamp(1.15rem,1rem + .8vw,1.6rem);padding-block:.85rem}
+.tk-list li::after{content:"";display:block;width:2.6rem;margin-inline:1.4rem;border-top:3px dashed var(--indigo-700)}
+.tk-list[aria-hidden="true"]{display:none}
+.ticker{padding-right:0}
+.tk-btn{position:absolute;right:0;top:0;bottom:0;z-index:2;display:none;align-items:center;gap:.5rem;min-width:2.75rem;padding:0 1rem;border:0;border-left:2px solid var(--indigo-900);background:var(--sun);color:var(--ink);font:700 var(--step--1) var(--font-body);cursor:pointer}
+.tk-btn:hover{background:#FFD46B}
+.ticker :focus-visible{outline-color:var(--indigo-900)}
+html:not(.anim) .tk-track{width:auto;flex-wrap:wrap;justify-content:center;padding-inline:var(--gut)}
+html:not(.anim) .tk-list{flex-wrap:wrap;justify-content:center}
+html:not(.anim) .tk-list li:last-child::after{display:none}
+html:not(.anim) .tk-list li{font-size:clamp(1rem,.8rem + .7vw,1.3rem);padding-block:.7rem}
+html:not(.anim) .tk-list li::after{width:1.3rem;margin-inline:.85rem}
+html.anim .tk-list[aria-hidden="true"]{display:flex}
+html.anim .tk-btn{display:inline-flex}
+html.anim .tk-track{animation:marquee 46s linear infinite}
+html.anim .ticker:hover .tk-track,html.anim .ticker:focus-within .tk-track,html.anim .ticker.paused .tk-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ============================================================ SECCIONES */
+.sec{padding-block:var(--pad);position:relative}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+.sec-head h2{font-size:var(--step-3);max-width:22ch}
+.listen{display:inline-flex;align-items:center;gap:.55rem;min-height:2.75rem;padding:0 1.15rem;background:transparent;color:var(--indigo-700);border:2px solid var(--indigo-700);border-radius:2rem;font:700 var(--step--1) var(--font-body);cursor:pointer;transition:background-color .25s,color .25s}
+.listen:hover,.listen[aria-pressed="true"]{background:var(--indigo-700);color:#fff}
+.on-dark .listen{color:var(--on-dark);border-color:var(--on-dark-soft)}
+.on-dark .listen:hover,.on-dark .listen[aria-pressed="true"]{background:var(--on-dark);color:var(--indigo-900)}
+.listen .eq{display:none;gap:2px;align-items:flex-end;height:.95rem}
+.listen[aria-pressed="true"] .eq{display:inline-flex}
+.listen .eq b{display:block;width:3px;height:100%;background:currentColor;border-radius:1px;transform-origin:bottom;transform:scaleY(.5)}
+html.anim .listen[aria-pressed="true"] .eq b{animation:eq .8s ease-in-out infinite alternate}
+html.anim .listen[aria-pressed="true"] .eq b:nth-child(2){animation-delay:.25s}
+html.anim .listen[aria-pressed="true"] .eq b:nth-child(3){animation-delay:.5s}
+@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}
+.stitch{height:0;border:0;border-top:3px dashed var(--chile);opacity:.8;margin:0}
+.on-dark{background:var(--indigo-900);color:var(--on-dark)}
+.on-dark h2,.on-dark h3{color:#fff}
+.on-dark a{color:var(--sun)}
+.form :focus-visible,.panel :focus-visible{outline-color:var(--ink)}
+.tint{background:var(--tint)}
+.src{font-size:var(--step--1);color:var(--muted)}
+.on-dark .src{color:var(--on-dark-soft)}
+.count{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+
+/* ---- Pestañas (mejora progresiva: sin JS todo el contenido se ve apilado) ---- */
+.tablist{display:none}
+.js .tablist{display:flex}
+.js [role="tabpanel"][hidden]{display:none}
+[role="tabpanel"]{outline-offset:6px}
+.tp-block + .tp-block{margin-top:2rem}
+.js .tp-block + .tp-block{margin-top:0}
+.tp-title{font-size:var(--step-1);margin-bottom:.75rem}
+.js .tp-title.nojs{display:none}
+
+/* ---- Problema ---- */
+.problem{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:start}
+.problem h2{font-size:var(--step-3)}
+.problem .lead{margin-top:1.1rem;color:var(--muted);font-size:var(--step-1);line-height:1.45}
+.figs{container-type:inline-size;display:grid;grid-template-columns:1.25fr 1fr 1fr;border-top:2px solid var(--ink)}
+.figs li{padding:1rem 1rem 0 0}
+.figs li + li{padding-left:1rem;border-left:1px dashed var(--line)}
+.figs .n{display:block;font-family:var(--font-display);color:var(--indigo-600);line-height:1;font-size:clamp(1.5rem,7cqi,3.1rem);white-space:nowrap}
+.figs p{margin:.5rem 0 0;font-size:var(--step--1);line-height:1.4}
+.band{margin-top:1.75rem;background:var(--indigo-900);color:#fff;border-radius:.4rem;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:auto 1fr;gap:1rem 1.75rem;align-items:center}
+.band .big{font-family:var(--font-display);font-size:clamp(3.2rem,2rem + 5vw,6rem);line-height:.9;color:var(--sun)}
+.band p{margin:0;font-family:var(--font-display);font-size:var(--step-1);line-height:1.2;color:#fff;max-width:26ch}
+.band small{display:block;font-family:var(--font-body);font-size:var(--step--1);color:var(--on-dark-soft);margin-top:.5rem}
+.two-p{margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;font-size:var(--step--1);line-height:1.55}
+.two-p p{margin:0}
+@media (max-width:62rem){.problem{grid-template-columns:1fr}}
+@media (max-width:40rem){.figs{grid-template-columns:1fr}.figs li + li{border-left:0;padding-left:0;border-top:1px dashed var(--line);margin-top:1rem;padding-top:1rem}.two-p{grid-template-columns:1fr}.band{grid-template-columns:1fr}}
+
+/* ---- Recorrido: hilo con cinco nudos ---- */
+.journey{display:none;position:relative;grid-template-columns:repeat(5,1fr);padding-top:1.7rem}
+.js .journey{display:grid}
+.jline{position:absolute;left:10%;right:10%;top:3.4rem;border-top:3px dashed rgba(255,255,255,.3)}
+.jfill{position:absolute;left:10%;width:80%;top:calc(3.4rem - 1px);height:5px;border-radius:3px;background:var(--sun);transform-origin:left;transform:scaleX(calc(var(--i,0)/4));transition:transform .9s var(--ease)}
+.needle-j{position:absolute;top:0;left:calc(10% + var(--i,0)*20%);width:1.6rem;height:2rem;margin-left:-.8rem;color:var(--sun);transition:left .9s var(--ease)}
+.journey [role="tab"]{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:0 .4rem .2rem;background:none;border:0;color:var(--on-dark-soft);cursor:pointer;font-size:var(--step--1);text-align:center}
+.journey .node{display:grid;place-items:center;width:3.4rem;height:3.4rem;border:2px solid rgba(255,255,255,.45);border-radius:.7rem;background:var(--indigo-900);font-family:var(--font-display);font-size:1.6rem;line-height:1;color:var(--on-dark);transition:background-color .35s,border-color .35s,color .35s,transform .5s var(--ease),box-shadow .5s var(--ease)}
+.journey .lbl{max-width:11ch;line-height:1.25;text-wrap:balance;transition:color .3s}
+.journey [role="tab"]:hover .node{border-color:var(--sun)}
+.journey [role="tab"].is-done .node{border-color:var(--sun);color:var(--sun)}
+.journey [role="tab"][aria-selected="true"] .node{background:var(--sun);border-color:var(--sun);color:var(--indigo-900);transform:translateY(-3px) scale(1.08);box-shadow:0 .35rem 0 var(--sun-deep)}
+.journey [role="tab"][aria-selected="true"] .lbl{color:#fff;font-weight:700}
+.stage{margin-top:1.75rem;background:rgba(255,255,255,.06);border-radius:.8rem;padding:clamp(1.5rem,3.5vw,2.75rem);min-height:15rem;overflow:hidden}
+.stage h3{font-size:var(--step-2);max-width:20ch}
+.stage .where{display:inline-block;margin:.9rem 0 1rem;padding:.3rem .85rem;border:1px solid var(--sun);border-radius:2rem;font-size:var(--step--1);color:var(--sun)}
+.stage p{color:var(--on-dark);max-width:46ch;margin-bottom:0}
+.js .stage [role="tabpanel"]:not([hidden]){display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.rp-art{width:100%;max-width:17rem;justify-self:center;overflow:visible}
+.rp-art path,.rp-art circle{fill:none;stroke:var(--sun);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.rp-art .c{stroke:var(--on-dark)}
+.nojs-step{padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.2);display:grid;gap:1rem}
+.nojs-step h3{font-size:var(--step-1);margin-bottom:.4rem}
+.js .nojs-step{padding:0;border:0}
+.nojs-step .nojs{display:block}
+.js .nojs-step .nojs{display:none}
+.nojs-step .js-h{display:none}
+.js .nojs-step .js-h{display:block}
+html:not(.js) .nojs-step .rp-art{max-width:9rem}
+@media (max-width:52rem){
+  .journey .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .journey .node{width:2.9rem;height:2.9rem;font-size:1.35rem}
+  .jline,.jfill{top:3.15rem}
+  .js .stage [role="tabpanel"]:not([hidden]){grid-template-columns:1fr}
+  .rp-art{max-width:10rem;justify-self:start;order:-1}
+}
+
+/* ---- Propuesta ---- */
+.offer{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,4.5rem);align-items:start}
+.offer h2{font-size:var(--step-3);margin-bottom:1.25rem}
+.claim{font-family:var(--font-display);font-size:var(--step-1);line-height:1.25;color:var(--indigo-700);margin-top:1.5rem;max-width:24ch}
+.segtabs{border:2px solid var(--indigo-900);border-radius:.4rem;overflow:hidden;width:max-content;max-width:100%;margin-bottom:1.25rem}
+.segtabs [role="tab"]{min-height:3rem;padding:0 1.4rem;background:var(--paper);color:var(--indigo-900);border:0;font:700 var(--step-0) var(--font-body);cursor:pointer;transition:background-color .25s,color .25s}
+.segtabs [role="tab"] + [role="tab"]{border-left:2px solid var(--indigo-900)}
+.segtabs [role="tab"][aria-selected="true"]{background:var(--indigo-900);color:#fff}
+.segtabs [role="tab"]:hover:not([aria-selected="true"]){background:var(--tint)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}
+.checks li{display:grid;grid-template-columns:1.5rem 1fr;gap:.7rem;padding:.85rem 0;border-top:1px solid var(--line);font-size:var(--step--1);line-height:1.5}
+.checks svg{width:1.3rem;height:1.3rem;margin-top:.1rem;color:var(--teal)}
+.checks b{display:block;font-size:var(--step-0);font-weight:700;margin-bottom:.1rem}
+.checks li:last-child:nth-child(odd){grid-column:1 / -1}
+@media (max-width:62rem){.offer{grid-template-columns:1fr}.claim{max-width:none}}
+@media (max-width:40rem){.checks{grid-template-columns:1fr}}
+
+/* ---- Modelo ---- */
+.b3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.b3 h3{font-size:var(--step-1);margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:2px solid var(--ink);color:var(--indigo-700)}
+.buyers li{padding:.8rem 0;border-bottom:1px solid var(--line)}
+.buyers li:last-child{border-bottom:0}
+.buyers b{display:block;font-size:var(--step-0)}
+.buyers span{font-size:var(--step--1);color:var(--muted);display:block;line-height:1.45;margin-top:.15rem}
+.stack{display:flex;height:3.6rem;border:2px solid var(--ink);border-radius:.35rem;overflow:hidden;margin:0 0 .75rem;background:var(--paper)}
+.stack > span{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:var(--step--1);color:var(--ink);overflow:hidden;min-width:0;transform-origin:left}
+.stack > span + span{border-left:2px solid var(--ink)}
+.stack.unit .s1{flex:60;background:var(--sun)}
+.stack.unit .s2{flex:55;background:repeating-linear-gradient(135deg,var(--tint-2) 0 6px,#fff 6px 12px)}
+.stack.unit .s3{flex:65;background:var(--indigo-700);color:#fff}
+.stack.mixbar{height:2.4rem}
+.stack.mixbar .m1{flex:60;background:var(--indigo-700)}
+.stack.mixbar .m2{flex:20;background:var(--sun)}
+.stack.mixbar .m3{flex:12;background:repeating-linear-gradient(135deg,var(--tint-2) 0 5px,#fff 5px 10px)}
+.stack.mixbar .m4{flex:8;background:var(--teal)}
+.legend li{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--line);font-size:var(--step--1)}
+.legend li:last-child{border-bottom:0}
+.legend li.strong{font-weight:700}
+.legend .sw{display:inline-block;width:1rem;height:1rem;border:2px solid var(--ink);margin-right:.55rem;margin-top:.15rem;border-radius:.15rem;flex:none}
+.legend .lab{display:flex;align-items:flex-start}
+.legend .v{font-family:var(--font-display);font-size:var(--step-0);color:var(--indigo-600);white-space:nowrap;font-weight:400}
+.sw.a{background:var(--sun)}.sw.b{background:repeating-linear-gradient(135deg,var(--tint-2) 0 3px,#fff 3px 6px)}.sw.c{background:var(--indigo-700)}
+.sw.m1{background:var(--indigo-700)}.sw.m2{background:var(--sun)}.sw.m3{background:repeating-linear-gradient(135deg,var(--tint-2) 0 3px,#fff 3px 6px)}.sw.m4{background:var(--teal)}
+.model-foot{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:flex-start;justify-content:space-between}
+details.more{flex:1 1 32rem;border:2px solid var(--ink);border-radius:.4rem;background:var(--paper)}
+details.more summary{cursor:pointer;min-height:3rem;display:flex;align-items:center;justify-content:space-between;padding:0 1.1rem;font-weight:700;list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font-family:var(--font-display);font-size:1.6rem;line-height:1;transition:transform .3s var(--ease)}
+details.more[open] summary::after{transform:rotate(45deg)}
+details.more ul{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 2rem;padding:.4rem 1.1rem 1.2rem;font-size:var(--step--1);line-height:1.5}
+details.more li b{display:block;font-size:var(--step-0)}
+@media (max-width:62rem){.b3{grid-template-columns:1fr}}
+@media (max-width:40rem){details.more ul{grid-template-columns:1fr}}
+
+/* ---- Impacto ---- */
+.impact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.chart{margin:0}
+.chart-box{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.5rem,2vw,1.1rem);align-items:end;height:17rem;padding-top:1.5rem;border-bottom:3px solid var(--sun)}
+.chart-box::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 calc(25% - 1px),rgba(255,255,255,.14) calc(25% - 1px) 25%);pointer-events:none}
+.bar-col{position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}
+.bar-col .v{font-family:var(--font-display);font-size:var(--step-1);color:#fff;margin-bottom:.3rem}
+.bar-col .b{height:calc(var(--h)*1%);background-color:var(--sun);border-radius:.25rem .25rem 0 0;min-height:.5rem;transform-origin:bottom;background-image:repeating-linear-gradient(135deg,rgba(17,28,51,.18) 0 3px,transparent 3px 9px)}
+.bar-col.last .b{background-color:#fff}
+.chart-x{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(.5rem,2vw,1.1rem);text-align:center;margin-top:.6rem;font-size:var(--step--1);color:var(--on-dark-soft)}
+.chart figcaption{margin-top:1rem;font-size:var(--step--1);color:var(--on-dark-soft);max-width:60ch}
+details.data{margin-top:.75rem;border:1px solid rgba(255,255,255,.3);border-radius:.35rem}
+details.data summary{cursor:pointer;min-height:2.75rem;display:flex;align-items:center;padding:0 1rem;font-weight:700;font-size:var(--step--1)}
+details.data table{width:100%;border-collapse:collapse;font-size:var(--step--1)}
+details.data th,details.data td{padding:.5rem 1rem;text-align:left;border-top:1px solid rgba(255,255,255,.2)}
+.goals{container-type:inline-size;display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--sun)}
+.goals li{padding:1.1rem 1rem 1.1rem 0;border-bottom:1px dashed rgba(255,255,255,.35)}
+.goals li:nth-child(even){padding-left:1.1rem;border-left:1px dashed rgba(255,255,255,.35)}
+.goals .g{font-family:var(--font-display);font-size:clamp(1.6rem,8.5cqi,3.1rem);color:#fff;line-height:1;white-space:nowrap}
+.goals p{margin:.5rem 0 0;font-size:var(--step--1);color:var(--on-dark)}
+.goals-title{font-size:var(--step-1);margin-bottom:.9rem}
+.expand{margin-top:clamp(1.75rem,3vw,2.75rem);display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;border-top:1px solid rgba(255,255,255,.22);padding-top:1.4rem}
+.expand h3{font-size:1.1rem;color:var(--sun);margin-bottom:.3rem}
+.expand p{margin:0;font-size:var(--step--1);color:var(--on-dark);line-height:1.5}
+@media (max-width:62rem){.impact{grid-template-columns:1fr}.expand{grid-template-columns:1fr 1fr}}
+@media (max-width:34rem){.expand{grid-template-columns:1fr}.goals{grid-template-columns:1fr}.goals li:nth-child(even){padding-left:0;border-left:0}}
+
+kbd{font:700 .85em var(--font-body);background:#fff;border:2px solid var(--ink);border-bottom-width:4px;border-radius:.3rem;padding:.05em .5em;color:var(--ink)}
+
+/* ---- Contacto ---- */
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem)}
+.contact h2{font-size:var(--step-3);margin-bottom:1.1rem}
+.contact .info p{color:var(--ink)}
+.contact .info p.src{color:var(--muted)}
+.form{background:var(--paper);color:var(--ink);box-shadow:0 1.5rem 3rem -1.5rem rgba(17,28,51,.35);padding:clamp(1.25rem,3vw,2.25rem);border-radius:.5rem}
+.form .req-note{font-size:var(--step--1);color:var(--muted);margin-bottom:1.1rem}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-weight:700;margin-bottom:.3rem}
+.field .help{display:block;font-size:var(--step--1);color:var(--muted);margin-bottom:.35rem;font-weight:400}
+.field input,.field select,.field textarea{width:100%;min-height:3rem;padding:.7rem .9rem;font:inherit;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:.35rem}
+.field textarea{min-height:6.5rem;resize:vertical}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#9B1C1C;border-width:3px}
+.err{display:none;margin-top:.4rem;color:#8A1414;font-weight:700;font-size:var(--step--1)}
+.field.invalid .err{display:flex;gap:.45rem;align-items:flex-start}
+.err::before{content:"⚠"}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 1.25rem}
+.check{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1.25rem}
+.check input{width:1.6rem;height:1.6rem;margin:.1rem 0 0;flex:none;accent-color:var(--indigo-700)}
+.check label{font-weight:400}
+.summary{display:none;margin-bottom:1.25rem;padding:1rem 1.25rem;border:3px solid #9B1C1C;border-radius:.35rem;background:#fff}
+.summary.show{display:block}
+.summary h3{font-family:var(--font-body);font-weight:700;color:#8A1414;font-size:var(--step-0);margin-bottom:.5rem}
+.summary a{color:#8A1414;font-weight:700}
+.done{display:none;padding:1.25rem;border:3px solid var(--teal);border-radius:.35rem;background:#fff}
+.done.show{display:block}
+.done h3{color:var(--teal);margin-bottom:.4rem;font-size:var(--step-1)}
+@media (max-width:52rem){.contact{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+/* ---- Pie ---- */
+.foot{background:var(--indigo-950);color:var(--on-dark);padding-block:2.5rem 2rem;font-size:.85rem}
+.foot .cols{display:grid;grid-template-columns:1fr 2.4fr;gap:2rem}
+.foot h2{font-size:var(--step-1);color:#fff;margin-bottom:.5rem}
+.foot h3{font-family:var(--font-body);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-bottom:.6rem}
+.foot ul{display:grid;gap:.45rem}
+.foot li{padding-left:2rem;text-indent:-2rem;max-width:90ch;color:var(--on-dark);line-height:1.45}
+.foot a{color:var(--on-dark)}
+.foot .fine{margin-top:1.5rem;padding-top:1rem;border-top:1px dashed rgba(255,255,255,.35);color:var(--on-dark-soft);max-width:none}
+@media (max-width:52rem){.foot .cols{grid-template-columns:1fr}}
+
+/* ============================================================ MOVIMIENTO
+   Regla: sin JS o con movimiento reducido todo se ve de inmediato. */
+html.anim .w{display:inline-block;overflow:hidden;vertical-align:top;white-space:nowrap;padding:.06em .03em .2em;margin:-.06em -.03em -.2em}
+html.anim #h1 .wi{transform:translateY(118%) rotate(7deg);filter:blur(6px)}
+html.anim #h1.in .wi{transform:none;filter:none;transition:transform 1.15s var(--ease),filter 1s var(--ease);transition-delay:calc(var(--i)*30ms + var(--base,0ms))}
+html.anim .hero h1 em path{animation:run 2.4s linear infinite}
+html.anim .hero-thread path{animation:draw 3.2s var(--ease) .2s forwards}
+@keyframes run{to{stroke-dashoffset:-13}}
+/* Versión suave (el sistema pide menos movimiento): solo fundidos y contadores */
+html.soft [data-split] .wi,html.soft .rv,html.soft .stack > span,html.soft .chart .b{opacity:0}
+html.soft [data-split].in .wi{opacity:1;transition:opacity .9s ease;transition-delay:calc(var(--i)*35ms)}
+html.soft .rv.in,html.soft .stack.in > span,html.soft .chart.in .b{opacity:1;transition:opacity .9s ease;transition-delay:var(--d,0ms)}
+html.anim [data-split] .wi{display:inline-block;transform:translateY(112%) rotate(4deg);transform-origin:0 100%}
+html.anim [data-split].in .wi{transform:none;transition:transform 1s var(--ease);transition-delay:calc(var(--i)*55ms + var(--base,0ms))}
+html.anim .rv{opacity:0;transform:translateY(1.4rem)}
+html.anim .rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+html.anim .stack > span{transform:scaleX(0)}
+html.anim .stack.in > span{transform:none;transition:transform 1.1s var(--ease);transition-delay:calc(var(--k,0)*120ms)}
+html.anim .chart .b{transform:scaleY(0)}
+html.anim .chart.in .b{transform:none;transition:transform 1.2s var(--ease);transition-delay:calc(var(--k)*110ms)}
+html.anim .draw{stroke-dasharray:var(--len,900);stroke-dashoffset:var(--len,900);animation:draw 2.2s var(--ease) .4s forwards}
+html.anim .hero-thread path{stroke-dasharray:1 0;stroke-dashoffset:1}
+html.anim .tp-anim{animation:fadeIn .4s ease}
+html.anim .tp-anim li{animation:panelIn .65s var(--ease) both}
+html.anim .tp-anim li:nth-child(2){animation-delay:60ms}html.anim .tp-anim li:nth-child(3){animation-delay:120ms}html.anim .tp-anim li:nth-child(4){animation-delay:180ms}html.anim .tp-anim li:nth-child(5){animation-delay:240ms}html.anim .tp-anim li:nth-child(6){animation-delay:300ms}
+html.anim .tp-anim .rp-art path,html.anim .tp-anim .rp-art circle{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.3s var(--ease) forwards}
+html.anim .tp-anim .rp-art > :nth-child(2){animation-delay:.1s}html.anim .tp-anim .rp-art > :nth-child(3){animation-delay:.2s}html.anim .tp-anim .rp-art > :nth-child(4){animation-delay:.3s}html.anim .tp-anim .rp-art > :nth-child(5){animation-delay:.4s}html.anim .tp-anim .rp-art > :nth-child(6){animation-delay:.5s}html.anim .tp-anim .rp-art > :nth-child(7){animation-delay:.6s}html.anim .tp-anim .rp-art > :nth-child(8){animation-delay:.7s}
+html.anim .tp-anim .where,html.anim .tp-anim p{animation:panelIn .65s var(--ease) both;animation-delay:120ms}
+html.anim .tag{animation:swing 1.6s var(--ease) .6s both,sway 8s ease-in-out 2.4s infinite alternate}
+html.anim .stamp{animation:stampIn .55s var(--ease) 2.3s both}
+html.anim .barcode::after{content:"";position:absolute;top:-5px;bottom:-5px;left:0;width:3px;background:var(--indigo-600);animation:scan 3.4s ease-in-out 2.9s infinite alternate}
+html.anim html.anim .btn-primary::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+html.anim .btn-primary:hover::before{transform:translateX(120%)}
+html.anim .checks li svg{transition:transform .4s var(--ease)}
+html.anim .checks li:hover svg{transform:scale(1.25) rotate(-8deg)}
+html.anim .buyers li{transition:transform .4s var(--ease)}
+html.anim .buyers li:hover{transform:translateX(.5rem)}
+html.anim .goals li,html.anim .figs li{transition:transform .5s var(--ease)}
+html.anim .goals li:hover,html.anim .figs li:hover{transform:translateY(-4px)}
+html.soft .stamp{animation:fadeIn 1s ease 1.2s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{transform:scale(.7) rotate(-8deg)}60%{transform:scale(1.15) rotate(3deg)}100%{transform:none}}
+@keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(-1deg) translateY(-5px)}}
+@keyframes stampIn{0%{opacity:0;transform:rotate(-9deg) scale(2.4)}55%{opacity:1;transform:rotate(-9deg) scale(.92)}100%{opacity:1;transform:rotate(-9deg) scale(1)}}
+@keyframes scan{to{left:calc(100% - 3px)}}
+html.anim .stage .bignum{animation:numIn .9s var(--ease)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes swing{from{transform:rotate(7deg) translateY(-1rem)}to{transform:rotate(-2.5deg)}}
+@keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes numIn{from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html[data-motion="off"]{scroll-behavior:auto}
+html[data-motion="off"] *{animation:none!important;transition:none!important}
+@media (forced-colors:active){.btn,.a11y-toggle,.listen{border:2px solid ButtonText}.stack > span{forced-color-adjust:none}}
+@media print{.site-head,.panel,.skip,.listen,.tablist{display:none!important}[role="tabpanel"][hidden]{display:block!important}}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#contenido">Saltar al contenido principal</a>
+
+<header class="site-head" role="banner">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Hilo Libre, ir al inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#FFBE2E"/><path d="M5 21c5-13 12 6 22-11" fill="none" stroke="#172C50" stroke-width="3" stroke-linecap="round"/><circle cx="26.5" cy="9" r="2.2" fill="#172C50"/></svg>
+      Hilo Libre
+    </a>
+    <nav class="nav" id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#problema">El problema</a></li>
+        <li><a href="#recorrido">Cómo funciona</a></li>
+        <li><a href="#propuesta">Qué ofrecemos</a></li>
+        <li><a href="#modelo">Modelo</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="head-tools">
+      <button class="a11y-toggle" id="a11yBtn" type="button" aria-expanded="false" aria-controls="a11yPanel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M4 8.5l8 1.5 8-1.5M12 10v5l-3.5 6M12 15l3.5 6"/></svg>
+        <span class="lbl">Accesibilidad</span>
+        <span class="sr-only">: abrir preferencias de lectura</span>
+      </button>
+      <button class="a11y-toggle menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span class="sr-only">Menú</span>
+      </button>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="progress"></i>
+    <svg class="needle" id="needle" viewBox="0 0 30 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 9h22"/><ellipse cx="26" cy="9" rx="2.2" ry="3.6"/></svg>
+  </div>
+
+  <div class="panel" id="a11yPanel" role="dialog" aria-labelledby="panelTitle" hidden>
+    <h2 id="panelTitle">Lee a tu manera</h2>
+    <p class="hint">Tus preferencias se guardan en este navegador. Se cierra con <kbd>Esc</kbd>.</p>
+    <fieldset><legend>Tamaño del texto</legend><div class="seg">
+      <label><input type="radio" name="size" value="1" checked><span>A</span></label>
+      <label><input type="radio" name="size" value="1.15"><span>A+</span></label>
+      <label><input type="radio" name="size" value="1.3"><span>A++</span></label>
+      <label><input type="radio" name="size" value="1.5"><span>A+++</span></label></div></fieldset>
+    <fieldset><legend>Contraste</legend><div class="seg">
+      <label><input type="radio" name="contrast" value="normal" checked><span>Normal</span></label>
+      <label><input type="radio" name="contrast" value="high"><span>Alto</span></label></div></fieldset>
+    <fieldset><legend>Espaciado entre letras y líneas</legend><div class="seg">
+      <label><input type="radio" name="spacing" value="normal" checked><span>Normal</span></label>
+      <label><input type="radio" name="spacing" value="wide"><span>Amplio</span></label></div></fieldset>
+    <fieldset><legend>Animaciones</legend><div class="seg">
+      <label><input type="radio" name="motion" value="auto" checked><span>Las de mi sistema</span></label>
+      <label><input type="radio" name="motion" value="full"><span>Completas</span></label>
+      <label><input type="radio" name="motion" value="off"><span>Ninguna</span></label></div><p id="motionHint" hidden>Tu sistema pide menos movimiento, así que ves una versión suave. Elige “Completas” para ver todas las animaciones.</p></fieldset>
+    <button class="reset" type="button" id="resetPrefs">Restablecer todo</button>
+  </div>
+</header>
+
+<div class="motion-note" id="motionNote" role="region" aria-label="Animaciones" hidden>
+  <p><strong>Tu dispositivo tiene las animaciones reducidas.</strong> Respetamos esa preferencia y mostramos una versión suave. ¿Quieres ver la experiencia completa?</p>
+  <div><button class="yes" type="button" id="motionYes">Ver animaciones completas</button><button class="no" type="button" id="motionNo">Dejar suave</button></div>
+</div>
+
+<main id="contenido" tabindex="-1">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio" aria-labelledby="h1">
+  <svg class="hero-thread" viewBox="0 0 1440 720" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path pathLength="1" d="M-20 610 C180 500 260 720 520 640 S860 420 980 380 S1100 250 1080 150"/>
+  </svg>
+  <div class="wrap">
+    <div>
+      <p class="kicker">Proveeduría textil · Modelo de negocio inclusivo</p>
+      <h1 id="h1" data-split="chars" data-io>Nadie necesita lástima. Necesita <em>el siguiente pedido.<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 6 C60 0 120 12 180 6 S260 2 298 6"/></svg></em></h1>
+      <p class="lede rv" data-io style="--d:500ms">Uniformes y textiles institucionales cosidos por mujeres en prisión y en libertad. Producción que cumple especificación y llega a tiempo.</p>
+      <div class="cta rv" data-io style="--d:650ms">
+        <a class="btn btn-primary" href="#contacto">Cotizar uniformes
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#problema">Entender el problema</a>
+      </div>
+      <p class="hero-note rv" data-io style="--d:800ms">Cifras de INEGI (CNSIPEF-E 2026, ENPOL 2021). El piloto y la cartera de clientes son proyección propia del modelo.</p>
+    </div>
+
+    <figure class="tag-stage" id="tagStage">
+      <svg class="tag-thread" viewBox="0 0 400 130" aria-hidden="true" focusable="false">
+        <path class="draw" style="--len:620" d="M-10 20 C90 -10 120 90 200 70 C240 60 210 30 200 62"/>
+      </svg>
+      <div class="tilt" id="tilt">
+        <div class="tag" role="group" aria-label="Ejemplo de etiqueta de trazabilidad de un lote">
+          <h2>Lote 014 · Mandiles</h2>
+          <p class="sub">Etiqueta de trazabilidad (ejemplo)</p>
+          <dl>
+            <div class="row"><dt>Piezas entregadas</dt><dd><span class="count" data-to="300" data-io><span aria-hidden="true">300</span><span class="sr-only">300</span></span></dd></div>
+            <div class="row"><dt>Socias productoras</dt><dd><span class="count" data-to="12" data-io><span aria-hidden="true">12</span><span class="sr-only">12</span></span></dd></div>
+            <div class="row"><dt>Inspección por lote</dt><dd><span class="ok">Aprobada
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg></span></dd></div>
+            <div class="row"><dt>Entrega</dt><dd>A tiempo</dd></div>
+            <div class="row"><dt>Pago quincenal</dt><dd>Con comprobante</dd></div>
+          </dl>
+          <div class="tag-foot" aria-hidden="true"><div class="barcode"></div><div class="stamp">Inspeccionado<small>Lote 014</small></div></div>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="ticker" aria-label="Lo que producimos">
+  <div class="tk-track" id="tkTrack">
+    <ul class="tk-list"><li>Uniformes</li><li>Batas y filipinas</li><li>Mandiles</li><li>Tote bags</li><li>Cojines</li><li>Kits de bienvenida</li><li>Marca blanca</li></ul>
+    <ul class="tk-list" aria-hidden="true"><li>Uniformes</li><li>Batas y filipinas</li><li>Mandiles</li><li>Tote bags</li><li>Cojines</li><li>Kits de bienvenida</li><li>Marca blanca</li></ul>
+  </div>
+  <button class="tk-btn" id="tkBtn" type="button" aria-pressed="false"><span id="tkTxt">Pausar</span></button>
+</section>
+
+<!-- ================= PROBLEMA ================= -->
+<section class="sec" id="problema" aria-labelledby="h-problema">
+  <div class="wrap problem">
+    <div>
+      <h2 id="h-problema" data-split data-io>Salir de la cárcel sin puerta de entrada al trabajo</h2>
+      <p class="lead rv" data-io>La puerta se abre, pero el mercado laboral no. Lo que se rompe no es el oficio: es el vínculo con el mercado.</p>
+      <button class="listen" type="button" data-speak="problema" aria-pressed="false" style="margin-top:1.25rem"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM17 8.5a5 5 0 010 7"/></svg><span>Escuchar esta sección</span><i class="eq" aria-hidden="true"><b></b><b></b><b></b></i></button>
+    </div>
+
+    <div>
+      <ul class="figs rv" data-io aria-label="Datos clave">
+        <li><span class="n count" data-to="231436" data-io><span aria-hidden="true">231,436</span><span class="sr-only">231,436</span></span><p>personas privadas de la libertad en México al cierre de 2025.</p></li>
+        <li><span class="n count" data-to="14260" data-io><span aria-hidden="true">14,260</span><span class="sr-only">14,260</span></span><p>son mujeres: el grupo más invisible del sistema.</p></li>
+        <li><span class="n count" data-to="17.4" data-dec="1" data-suf="%" data-io><span aria-hidden="true">17.4%</span><span class="sr-only">17.4 por ciento</span></span><p>ya había estado antes en prisión: la puerta giratoria.</p></li>
+      </ul>
+
+      <div class="band rv" data-io style="--d:150ms">
+        <span class="big count" data-to="73" data-io><span aria-hidden="true">73</span><span class="sr-only">73</span></span>
+        <p>de cada 100 mujeres trabajaban la semana antes de ser detenidas. La barrera no es el oficio: es el filtro de contratación.
+          <small>La capacidad de trabajar ya está ahí; lo que se rompe es el vínculo con el mercado.</small></p>
+      </div>
+
+      <div class="two-p rv" data-io style="--d:200ms">
+        <p>La carta de no antecedentes penales sigue siendo legal de exigir. El Senado aprobó prohibirla en 2023, pero la reforma no está vigente y en agosto de 2026 se volvió a presentar la iniciativa.</p>
+        <p>El <strong>52.6 %</strong> de las mujeres en prisión no tiene sentencia: entran y salen sin un proceso resuelto, con el estigma ya puesto. Sin ingreso al salir, volver a delinquir se vuelve la única opción disponible.</p>
+      </div>
+      <p class="src" style="margin:.9rem 0 0">Fuentes: INEGI, CNSIPEF-E 2026 (cierre de 2025); INEGI, ENPOL 2021; Récord (2026).</p>
+    </div>
+  </div>
+</section>
+
+<hr class="stitch" aria-hidden="true">
+
+<!-- ================= RECORRIDO ================= -->
+<section class="sec on-dark" id="recorrido" aria-labelledby="h-recorrido">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-recorrido" data-split data-io>Cinco puntos de contacto, un mismo hilo</h2>
+      <button class="listen" type="button" data-speak="recorrido" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM17 8.5a5 5 0 010 7"/></svg><span>Escuchar esta sección</span><i class="eq" aria-hidden="true"><b></b><b></b><b></b></i></button>
+    </div>
+
+    <div class="rec" data-tabs>
+      <div class="journey tablist" role="tablist" aria-label="Puntos de contacto con las socias">
+        <i class="jline" aria-hidden="true"></i><i class="jfill" aria-hidden="true"></i>
+        <svg class="needle-j" viewBox="0 0 24 32" aria-hidden="true" focusable="false"><path d="M12 30V6" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M12 2c-2.6 0-2.6 5 0 5s2.6-5 0-5z" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+        <button role="tab" id="t-r1" aria-controls="p-r1" aria-selected="true"><span class="node" aria-hidden="true">1</span><span class="lbl">Taller dentro del penal</span></button>
+        <button role="tab" id="t-r2" aria-controls="p-r2" aria-selected="false" tabindex="-1"><span class="node" aria-hidden="true">2</span><span class="lbl">Taller de egreso</span></button>
+        <button role="tab" id="t-r3" aria-controls="p-r3" aria-selected="false" tabindex="-1"><span class="node" aria-hidden="true">3</span><span class="lbl">Producción en casa</span></button>
+        <button role="tab" id="t-r4" aria-controls="p-r4" aria-selected="false" tabindex="-1"><span class="node" aria-hidden="true">4</span><span class="lbl">Órdenes y pagos</span></button>
+        <button role="tab" id="t-r5" aria-controls="p-r5" aria-selected="false" tabindex="-1"><span class="node" aria-hidden="true">5</span><span class="lbl">Red de acompañamiento</span></button>
+      </div>
+      <div class="stage">
+        <div role="tabpanel" id="p-r1" aria-labelledby="t-r1" tabindex="0" class="nojs-step">
+          <div>
+            <h3 class="nojs">1 · Taller dentro del penal</h3><h3 class="js-h">Taller dentro del penal</h3>
+            <span class="where">Convenio con la autoridad penitenciaria</span>
+            <p>Tres sesiones por semana con maestra técnica y coordinadora de producción. Ahí se capacita, se produce y se inspecciona el lote.</p>
+          </div>
+          <svg class="rp-art" viewBox="0 0 240 180" aria-hidden="true" focusable="false"><path pathLength="1" d="M28 136H212V154H28Z"/><path pathLength="1" d="M182 136V54Q182 40 168 40H66Q48 40 48 58V90H80V62"/><path pathLength="1" d="M100 40V24H130V40"/><path pathLength="1" class="c" d="M115 24C113 6 66 6 64 64"/><path pathLength="1" class="c" d="M64 90V128"/><circle pathLength="1" class="c" cx="204" cy="88" r="16"/><path pathLength="1" class="c" d="M36 128H92"/></svg>
+        </div>
+        <div role="tabpanel" id="p-r2" aria-labelledby="t-r2" tabindex="0" class="nojs-step" hidden>
+          <div>
+            <h3 class="nojs">2 · Taller de egreso</h3><h3 class="js-h">Taller de egreso, fuera del penal</h3>
+            <span class="where">Valle de México</span>
+            <p>Espacio con máquinas compartidas para preliberadas y liberadas. Es el puente que evita el corte de ingreso al salir.</p>
+          </div>
+          <svg class="rp-art" viewBox="0 0 240 180" aria-hidden="true" focusable="false"><path pathLength="1" d="M20 152H220"/><path pathLength="1" d="M40 152V88L96 46L152 88V152"/><path pathLength="1" class="c" d="M82 152V114H110V152"/><path pathLength="1" class="c" d="M56 108H70"/><path pathLength="1" d="M166 124H212"/><path pathLength="1" d="M200 110L214 124L200 138"/></svg>
+        </div>
+        <div role="tabpanel" id="p-r3" aria-labelledby="t-r3" tabindex="0" class="nojs-step" hidden>
+          <div>
+            <h3 class="nojs">3 · Producción en casa</h3><h3 class="js-h">Producción en casa, con máquina en comodato</h3>
+            <span class="where">Máquina prestada, luego suya</span>
+            <p>Para socias con hijos pequeños o sin posibilidad de traslado. La máquina se presta y se libera a su nombre al cumplir metas de entrega.</p>
+          </div>
+          <svg class="rp-art" viewBox="0 0 240 180" aria-hidden="true" focusable="false"><path pathLength="1" d="M36 152V88L108 34L180 88V152Z"/><path pathLength="1" class="c" d="M92 152V116H124V152"/><path pathLength="1" class="c" d="M138 100H166V126H138Z"/><path pathLength="1" class="c" d="M152 100V126"/><path pathLength="1" class="c" d="M138 113H166"/><path pathLength="1" d="M150 58V38H166V72"/><path pathLength="1" d="M196 152H220"/></svg>
+        </div>
+        <div role="tabpanel" id="p-r4" aria-labelledby="t-r4" tabindex="0" class="nojs-step" hidden>
+          <div>
+            <h3 class="nojs">4 · Órdenes y pagos</h3><h3 class="js-h">Órdenes y pagos por WhatsApp</h3>
+            <span class="where">El canal que ya usa</span>
+            <p>Cada socia recibe su orden, confirma piezas entregadas y consulta su pago en WhatsApp. Cobro quincenal a cuenta propia.</p>
+          </div>
+          <svg class="rp-art" viewBox="0 0 240 180" aria-hidden="true" focusable="false"><path pathLength="1" d="M96 16H144Q156 16 156 28V152Q156 164 144 164H96Q84 164 84 152V28Q84 16 96 16Z"/><path pathLength="1" class="c" d="M110 28H130"/><path pathLength="1" d="M96 50H136V76H108L96 88Z"/><path pathLength="1" d="M144 96H106V122H130L144 134Z"/><path pathLength="1" class="c" d="M104 148L110 154L124 140"/><path pathLength="1" d="M176 60H210"/><path pathLength="1" d="M176 80H200"/></svg>
+        </div>
+        <div role="tabpanel" id="p-r5" aria-labelledby="t-r5" tabindex="0" class="nojs-step" hidden>
+          <div>
+            <h3 class="nojs">5 · Red de acompañamiento</h3><h3 class="js-h">Red de acompañamiento por alianzas</h3>
+            <span class="where">No lo hacemos solos</span>
+            <p>Asesoría jurídica, atención psicosocial y cuidado infantil a través de organizaciones aliadas. No lo improvisamos.</p>
+          </div>
+          <svg class="rp-art" viewBox="0 0 240 180" aria-hidden="true" focusable="false"><circle pathLength="1" cx="62" cy="68" r="13"/><path pathLength="1" d="M38 124Q38 92 62 92Q86 92 86 124"/><circle pathLength="1" class="c" cx="120" cy="58" r="13"/><path pathLength="1" class="c" d="M96 114Q96 82 120 82Q144 82 144 114"/><circle pathLength="1" cx="178" cy="68" r="13"/><path pathLength="1" d="M154 124Q154 92 178 92Q202 92 202 124"/><path pathLength="1" d="M24 148C60 128 84 168 120 148S180 128 216 148"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROPUESTA ================= -->
+<section class="sec" id="propuesta" aria-labelledby="h-prop">
+  <div class="wrap offer">
+    <div>
+      <h2 id="h-prop" data-split data-io>Una promesa para cada lado del mostrador</h2>
+      <p class="claim rv" data-io>“No vendemos lástima: vendemos uniformes que cumplen especificación y llegan a tiempo.”</p>
+      <button class="listen" type="button" data-speak="propuesta" aria-pressed="false" style="margin-top:1.25rem"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM17 8.5a5 5 0 010 7"/></svg><span>Escuchar esta sección</span><i class="eq" aria-hidden="true"><b></b><b></b><b></b></i></button>
+    </div>
+
+    <div data-tabs>
+      <div class="tablist segtabs" role="tablist" aria-label="Elige a quién le hablamos">
+        <button role="tab" id="t-o1" aria-controls="p-o1" aria-selected="true">Para las socias</button>
+        <button role="tab" id="t-o2" aria-controls="p-o2" aria-selected="false" tabindex="-1">Para las empresas</button>
+      </div>
+
+      <div role="tabpanel" id="p-o1" aria-labelledby="t-o1" tabindex="0" class="tp-block">
+        <h3 class="tp-title nojs">Para las socias productoras</h3>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Pago por pieza</b>Tabulador público: al menos el doble del salario mínimo por hora trabajada.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Capacitación certificada</b>Costura industrial, control de calidad y costos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Pago quincenal</b>A una cuenta bancaria a su nombre, con comprobante.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Continuidad</b>La misma socia produce dentro del penal y después desde el taller de egreso.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Acompañamiento</b>Jurídico y psicosocial, mediante alianzas con organizaciones especializadas.</span></li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-o2" aria-labelledby="t-o2" tabindex="0" class="tp-block" hidden>
+        <h3 class="tp-title nojs">Para las empresas clientas</h3>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Especificación cumplida</b>Uniformes y textiles institucionales, con inspección por lote.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Entrega a tiempo</b>Capacidad de reposición, con dos talleres que se cubren entre sí.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Precio competitivo</b>Frente a la maquila tradicional, sin intermediarios.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Impacto auditable</b>Cuántas socias, cuánto ganaron, cuántas siguen después de salir.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span><b>Una historia real</b>Que su marca puede contar sin inventar nada.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MODELO ================= -->
+<section class="sec tint" id="modelo" aria-labelledby="h-modelo">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-modelo" data-split data-io>Quién compra y cómo se sostiene el negocio</h2>
+      <button class="listen" type="button" data-speak="modelo" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM17 8.5a5 5 0 010 7"/></svg><span>Escuchar esta sección</span><i class="eq" aria-hidden="true"><b></b><b></b><b></b></i></button>
+    </div>
+
+    <div class="b3">
+      <div class="rv" data-io>
+        <h3>Quién paga</h3>
+        <ul class="buyers">
+          <li><b>Hoteles y restaurantes</b><span>50 a 500 empleados. Renuevan uniformes una o dos veces al año y sufren rotación alta.</span></li>
+          <li><b>Hospitales y clínicas privadas</b><span>Consumo constante de batas, filipinas y blancos, con estándar de calidad exigente.</span></li>
+          <li><b>Escuelas y empresas medianas</b><span>Kits de bienvenida, playeras y tote bags institucionales con presupuesto anual.</span></li>
+        </ul>
+      </div>
+
+      <div class="rv" data-io style="--d:120ms">
+        <h3>De dónde vienen los ingresos</h3>
+        <div class="stack mixbar" data-io role="img" aria-label="Barra proporcional de ingresos proyectados: 60 por ciento contratos B2B, 20 por ciento regalos corporativos, 12 por ciento venta directa, 8 por ciento maquila de marca blanca.">
+          <span class="m1" style="--k:0"></span><span class="m2" style="--k:1"></span><span class="m3" style="--k:2"></span><span class="m4" style="--k:3"></span>
+        </div>
+        <ul class="legend">
+          <li><span class="lab"><i class="sw m1"></i>Contratos B2B de uniformes y textiles</span><span class="v count" data-to="60" data-suf="%" data-io><span aria-hidden="true">60%</span><span class="sr-only">60 por ciento</span></span></li>
+          <li><span class="lab"><i class="sw m2"></i>Regalos corporativos y kits de bienvenida</span><span class="v count" data-to="20" data-suf="%" data-io><span aria-hidden="true">20%</span><span class="sr-only">20 por ciento</span></span></li>
+          <li><span class="lab"><i class="sw m3"></i>Venta directa al público</span><span class="v count" data-to="12" data-suf="%" data-io><span aria-hidden="true">12%</span><span class="sr-only">12 por ciento</span></span></li>
+          <li><span class="lab"><i class="sw m4"></i>Maquila de marca blanca</span><span class="v count" data-to="8" data-suf="%" data-io><span aria-hidden="true">8%</span><span class="sr-only">8 por ciento</span></span></li>
+        </ul>
+      </div>
+
+      <div class="rv" data-io style="--d:240ms">
+        <h3>Anatomía de un tote de <span class="count" data-to="180" data-pre="$" data-io><span aria-hidden="true">$180</span><span class="sr-only">$180</span></span></h3>
+        <div class="stack unit" data-io role="img" aria-label="Barra proporcional de un tote de 180 pesos: 60 para la socia, 55 para materiales, 65 de margen, que equivale a 36 por ciento.">
+          <span class="s1" style="--k:0">$60</span><span class="s2" style="--k:1">$55</span><span class="s3" style="--k:2">$65</span>
+        </div>
+        <ul class="legend">
+          <li><span class="lab"><i class="sw a"></i>Pago a la socia</span><span class="v">$60</span></li>
+          <li><span class="lab"><i class="sw b"></i>Materiales e insumos</span><span class="v">$55</span></li>
+          <li class="strong"><span class="lab"><i class="sw c"></i>Margen del negocio</span><span class="v">$65 (36%)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="model-foot">
+      <details class="more">
+        <summary>Otras formas de pago e intercambio</summary>
+        <ul>
+          <li><b>Maquinaria en comodato</b>En lugar de donativo: la empresa presta el equipo y lo cuenta como inversión social.</li>
+          <li><b>Horas de talento</b>Capacitación en calidad y costos a cambio de reconocimiento de impacto.</li>
+          <li><b>Donativo deducible</b>Vía una asociación civil aliada, solo para formación, nunca para subsidiar el precio.</li>
+          <li><b>Para las socias</b>Anticipo sobre pieza y caja de ahorro. El pago siempre es en dinero, nunca en especie.</li>
+        </ul>
+      </details>
+      <a class="btn btn-indigo" href="#contacto">Pedir una cotización</a>
+    </div>
+    <p class="src" style="margin:1rem 0 0">Porcentajes, precios y márgenes son estimación propia del modelo; deben validarse con cotizaciones reales en el piloto.</p>
+  </div>
+</section>
+
+<!-- ================= IMPACTO ================= -->
+<section class="sec on-dark" id="impacto" aria-labelledby="h-imp">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-imp" data-split data-io>Cada expansión suma más mujeres</h2>
+      <button class="listen" type="button" data-speak="impacto" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM17 8.5a5 5 0 010 7"/></svg><span>Escuchar esta sección</span><i class="eq" aria-hidden="true"><b></b><b></b><b></b></i></button>
+    </div>
+
+    <div class="impact">
+      <figure class="chart" data-io>
+        <div role="img" aria-label="Gráfica de barras: socias productoras activas por año. Año 1, 60. Año 2, 120. Año 3, 200. Año 4, 380. Año 5, 600.">
+          <div class="chart-box" aria-hidden="true">
+            <div class="bar-col"><span class="v count" data-to="60" data-io><span>60</span></span><span class="b" style="--h:10;--k:0"></span></div>
+            <div class="bar-col"><span class="v count" data-to="120" data-io><span>120</span></span><span class="b" style="--h:20;--k:1"></span></div>
+            <div class="bar-col"><span class="v count" data-to="200" data-io><span>200</span></span><span class="b" style="--h:33.3;--k:2"></span></div>
+            <div class="bar-col"><span class="v count" data-to="380" data-io><span>380</span></span><span class="b" style="--h:63.3;--k:3"></span></div>
+            <div class="bar-col last"><span class="v count" data-to="600" data-io><span>600</span></span><span class="b" style="--h:100;--k:4"></span></div>
+          </div>
+          <div class="chart-x" aria-hidden="true"><span>Año 1</span><span>Año 2</span><span>Año 3</span><span>Año 4</span><span>Año 5</span></div>
+        </div>
+        <figcaption>Socias productoras activas por año: del piloto en 2 centros femeniles del Estado de México a 15 penales en 10 estados. Diez veces más mujeres con ingreso propio.</figcaption>
+        <details class="data">
+          <summary>Ver los datos de la gráfica en tabla</summary>
+          <table>
+            <caption class="sr-only">Socias productoras activas por año</caption>
+            <thead><tr><th scope="col">Año</th><th scope="col">Socias activas</th></tr></thead>
+            <tbody><tr><th scope="row">1</th><td>60</td></tr><tr><th scope="row">2</th><td>120</td></tr><tr><th scope="row">3</th><td>200</td></tr><tr><th scope="row">4</th><td>380</td></tr><tr><th scope="row">5</th><td>600</td></tr></tbody>
+          </table>
+        </details>
+      </figure>
+
+      <div>
+        <h3 class="goals-title">Cuatro metas que vamos a defender</h3>
+        <ul class="goals">
+          <li><div class="g count" data-to="70" data-pre="≥ " data-suf="%" data-io><span aria-hidden="true">≥ 70%</span><span class="sr-only">Al menos 70 por ciento</span></div><p>de las socias sigue produciendo 12 meses después de salir.</p></li>
+          <li><div class="g count" data-to="6000" data-pre="≥ $" data-io><span aria-hidden="true">≥ $6,000</span><span class="sr-only">Al menos 6,000 pesos</span></div><p>de ingreso mensual promedio por socia al año 2.</p></li>
+          <li><div class="g count" data-to="95" data-pre="≥ " data-suf="%" data-io><span aria-hidden="true">≥ 95%</span><span class="sr-only">Al menos 95 por ciento</span></div><p>de pedidos entregados completos y a tiempo.</p></li>
+          <li><div class="g count" data-to="85" data-pre="≥ " data-suf="%" data-io><span aria-hidden="true">≥ 85%</span><span class="sr-only">Al menos 85 por ciento</span></div><p>del gasto total cubierto con venta propia al año 3.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="expand">
+      <div class="rv" data-io><h3>Célula replicable</h3><p>Una maestra técnica, diez máquinas y una coordinadora hacen 20 socias. Abrir un centro es copiar la célula.</p></div>
+      <div class="rv" data-io style="--d:100ms"><h3>Demanda distribuida</h3><p>Cada ciudad tiene hoteles, hospitales y escuelas. El límite es la capacidad instalada, no el mercado.</p></div>
+      <div class="rv" data-io style="--d:200ms"><h3>Licenciamiento social, año 4</h3><p>Organizaciones locales operan su taller con nuestra marca, cartera de clientes y plataforma.</p></div>
+      <div class="rv" data-io style="--d:300ms"><h3>Otros grupos</h3><p>El mismo modelo sirve para población masculina y para cualquier grupo excluido por estigma.</p></div>
+    </div>
+    <p class="src" style="margin:1.25rem 0 0">Proyección y metas propias del modelo (año 1 al 3). Referente del sector: La Cana acompaña a 5,747 mujeres en 15 penales de 10 estados.</p>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="sec tint" id="contacto" aria-labelledby="h-contacto">
+  <div class="wrap contact">
+    <div class="info">
+      <h2 id="h-contacto" data-split data-io>Hablemos de su próximo pedido</h2>
+      <p>Cuéntenos qué necesita: uniformes, kits de bienvenida, tote bags o maquila de marca blanca. Le responderemos con una cotización y el tabulador de pago a las socias.</p>
+      <p>También buscamos organizaciones aliadas para acompañamiento jurídico, psicosocial y cuidado infantil.</p>
+      <p class="src">Esta es una maqueta: el formulario valida los datos pero no envía información.</p>
+    </div>
+
+    <div class="form rv" data-io>
+      <div class="summary" id="summary" role="alert" tabindex="-1">
+        <h3>Revisa estos campos para poder enviar:</h3>
+        <ul id="summaryList"></ul>
+      </div>
+      <div class="done" id="done" role="status" tabindex="-1">
+        <h3>Gracias, recibimos su mensaje</h3>
+        <p style="margin:0">En una maqueta real, aquí confirmaríamos su solicitud y le diríamos cuándo esperar respuesta.</p>
+      </div>
+      <form id="form" novalidate>
+        <p class="req-note">Los campos con <strong>(obligatorio)</strong> deben llenarse.</p>
+        <div class="row2">
+          <div class="field">
+            <label for="nombre">Nombre completo <span>(obligatorio)</span></label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+            <span class="err" id="e-nombre">Escribe tu nombre para saber con quién hablamos.</span>
+          </div>
+          <div class="field">
+            <label for="org">Organización <span>(opcional)</span></label>
+            <input id="org" name="org" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="correo">Correo electrónico <span>(obligatorio)</span></label>
+            <span class="help" id="h-correo">Ejemplo: nombre@empresa.com</span>
+            <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email" required aria-describedby="h-correo e-correo">
+            <span class="err" id="e-correo">Escribe un correo válido, con arroba y dominio. Por ejemplo: nombre@empresa.com</span>
+          </div>
+          <div class="field">
+            <label for="tipo">¿Qué le interesa? <span>(obligatorio)</span></label>
+            <span class="help" aria-hidden="true">Elige una opción</span>
+            <select id="tipo" name="tipo" required aria-describedby="e-tipo">
+              <option value="">Elige una opción</option>
+              <option>Uniformes y textiles institucionales</option>
+              <option>Regalos corporativos y kits de bienvenida</option>
+              <option>Maquila de marca blanca</option>
+              <option>Quiero ser organización aliada</option>
+              <option>Otro tema</option>
+            </select>
+            <span class="err" id="e-tipo">Elige el tema que más se parezca a lo que necesitas.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="msg">Mensaje <span>(opcional)</span></label>
+          <span class="help" id="h-msg">Cantidad aproximada de piezas y fecha en que las necesita.</span>
+          <textarea id="msg" name="msg" aria-describedby="h-msg"></textarea>
+        </div>
+        <div class="check">
+          <input type="checkbox" id="priv" name="priv" required aria-describedby="e-priv">
+          <div>
+            <label for="priv">Acepto que Hilo Libre use estos datos solo para responderme. <span>(obligatorio)</span></label>
+            <span class="err" id="e-priv" style="display:none">Marca la casilla para poder enviar el formulario.</span>
+          </div>
+        </div>
+        <button class="btn btn-indigo" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" role="contentinfo">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>Hilo Libre</h2>
+        <p style="max-width:32ch">Proveeduría textil hecha por mujeres en prisión y en libertad.</p>
+        <p style="color:var(--on-dark-soft)">Maqueta de sitio web · Actividad 2<br>Ricardo Javier Colunga Gomez<br>Docente: Jorge Olmos Soria · UVM Monterrey</p>
+      </div>
+      <div>
+        <h3>Referencias (APA 7.ª ed.)</h3>
+        <ul>
+          <li>Instituto Nacional de Estadística y Geografía. (2021). <i>Encuesta Nacional de Población Privada de la Libertad (ENPOL) 2021</i>. <a href="https://www.inegi.org.mx/programas/enpol/2021/">https://www.inegi.org.mx/programas/enpol/2021/</a></li>
+          <li>Instituto Nacional de Estadística y Geografía. (2026, 16 de julio). <i>Censo Nacional de Sistema Penitenciario Federal y Estatales (CNSIPEF-E) 2026</i> [Comunicado de prensa]. <a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/cnispee/CNSIPEF-E2025_CP.pdf">inegi.org.mx</a></li>
+          <li>CODESPA. (s. f.). <i>Los 3 tipos de negocios inclusivos</i>. <a href="https://www.codespa.org/leccion-3-negocios-inclusivos/">https://www.codespa.org/leccion-3-negocios-inclusivos/</a></li>
+          <li>La Cana. (s. f.). <i>Reinserción social de mujeres en prisión</i>. <a href="https://lacana.org/">https://lacana.org/</a></li>
+          <li>Récord. (2026, 7 de agosto). <i>¿Ya no podrán pedir la carta de antecedentes penales para conseguir trabajo en México?</i> <a href="https://www.record.com.mx/historia/ya-no-podran-pedir-la-carta-de-antecedentes-penales-para-conseguir-trabajo-en-mexico-2026080715422530855">record.com.mx</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Cifras de población: INEGI. El piloto, la cartera de clientes, los precios y las metas son proyección propia del modelo de negocio (Actividad 1).</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+  var mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var KEY='hilolibre-prefs';
+  var prefs={size:'1',contrast:'normal',spacing:'normal',motion:'auto'};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s)Object.assign(prefs,s);}catch(e){}
+
+  function mode(){if(prefs.motion==='off')return 'off';if(prefs.motion==='full')return 'full';return mq.matches?'soft':'full';}
+  function animOK(){return mode()!=='off';}
+  function fullOK(){return mode()==='full';}
+  function apply(){
+    root.setAttribute('data-size',prefs.size);
+    root.setAttribute('data-contrast',prefs.contrast);
+    root.setAttribute('data-spacing',prefs.spacing);
+    root.setAttribute('data-motion',prefs.motion);
+    root.classList.toggle('anim',fullOK());root.classList.toggle('soft',mode()==='soft');
+    var mh=document.getElementById('motionHint');if(mh)mh.hidden=!(mq.matches&&prefs.motion==='auto');
+    ['size','contrast','spacing','motion'].forEach(function(n){
+      var el=document.querySelector('input[name="'+n+'"][value="'+prefs[n]+'"]');if(el)el.checked=true;
+    });
+    try{localStorage.setItem(KEY,JSON.stringify(prefs));}catch(e){}
+  }
+
+  /* ---- Texto cinético: cada palabra sube desde una máscara ---- */
+  function split(el){
+    var n=0,chars=el.dataset.split==='chars';
+    (function walk(node){
+      [].slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType===3){
+          var frag=document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function(part){
+            if(!part)return;
+            if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '));return;}
+            var w=document.createElement('span');w.className='w';
+            (chars?part.split(''):[part]).forEach(function(ch){var i=document.createElement('span');i.className='wi';i.style.setProperty('--i',n++);i.textContent=ch;w.appendChild(i);});
+            frag.appendChild(w);
+          });
+          node.replaceChild(frag,c);
+        }else if(c.nodeType===1 && c.tagName.toLowerCase()!=='svg'){walk(c);}
+      });
+    })(el);
+  }
+  document.querySelectorAll('[data-split]').forEach(split);
+  document.getElementById('h1').style.setProperty('--base','350ms');
+
+  apply();
+  var note=document.getElementById('motionNote');
+  if(mq.matches&&prefs.motion==='auto'){note.hidden=false;}
+  document.getElementById('motionYes').addEventListener('click',function(){prefs.motion='full';apply();note.hidden=true;replay();});
+  document.getElementById('motionNo').addEventListener('click',function(){note.hidden=true;});
+  document.querySelectorAll('#a11yPanel input[type=radio]').forEach(function(r){
+    r.addEventListener('change',function(){prefs[r.name]=r.value;apply();});
+  });
+  document.getElementById('resetPrefs').addEventListener('click',function(){
+    prefs={size:'1',contrast:'normal',spacing:'normal',motion:'auto'};apply();
+  });
+  if(mq.addEventListener)mq.addEventListener('change',apply);
+
+  /* ---- Contadores (el valor final ya está en el HTML) ---- */
+  var fmt=function(v,d){return v.toLocaleString('es-MX',{minimumFractionDigits:d,maximumFractionDigits:d});};
+  function runCount(el){
+    if(!animOK()||el.dataset.done)return;
+    el.dataset.done='1';
+    var to=parseFloat(el.dataset.to),d=parseInt(el.dataset.dec||'0',10),pre=el.dataset.pre||'',suf=el.dataset.suf||'';
+    var out=el.querySelector('[aria-hidden="true"]')||el.firstElementChild;
+    var dur=1700,t0=null;
+    (function tick(t){
+      if(t0===null)t0=t;
+      var p=Math.min(1,(t-t0)/dur),e=p===1?1:1-Math.pow(2,-10*p);
+      out.textContent=pre+fmt(to*e,d)+suf;
+      if(p<1)requestAnimationFrame(tick);
+    })(performance.now());
+  }
+
+  /* ---- Revelado al entrar en pantalla ---- */
+  var targets=[].slice.call(document.querySelectorAll('[data-io]'));
+  function reveal(el){
+    el.classList.add('in');
+    if(el.classList.contains('count'))runCount(el);
+  }
+  var io=null;
+  if('IntersectionObserver' in window){
+    io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){reveal(e.target);io.unobserve(e.target);}});
+    },{threshold:.2,rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(t){io.observe(t);});
+  }else{targets.forEach(reveal);}
+  function replay(){
+    window.scrollTo(0,0);
+    targets.forEach(function(t){t.classList.remove('in');delete t.dataset.done;});
+    void document.body.offsetWidth;
+    targets.forEach(function(t){if(io)io.observe(t);else reveal(t);});
+  }
+  setTimeout(function(){targets.forEach(function(t){
+    var r=t.getBoundingClientRect();
+    if(r.top<innerHeight&&r.bottom>0)reveal(t);
+  });},1800);
+
+  /* ---- Etiqueta que responde al puntero ---- */
+  var tilt=document.getElementById('tilt'),stage=document.getElementById('tagStage');
+  if(tilt&&window.matchMedia('(pointer:fine)').matches){
+    stage.addEventListener('pointermove',function(e){
+      if(!fullOK())return;
+      var r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      tilt.style.transform='rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)';
+    });
+    stage.addEventListener('pointerleave',function(){tilt.style.transform='';});
+  }
+
+  /* ---- Cinta de productos: se puede pausar ---- */
+  var tk=document.querySelector('.ticker'),tkb=document.getElementById('tkBtn'),tkt=document.getElementById('tkTxt');
+  tkb.addEventListener('click',function(){
+    var p=tk.classList.toggle('paused');
+    tkb.setAttribute('aria-pressed',String(p));tkt.textContent=p?'Reanudar':'Pausar';
+  });
+
+  /* ---- Panel de accesibilidad y menú ---- */
+  var btn=document.getElementById('a11yBtn'),panel=document.getElementById('a11yPanel');
+  var menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('menu');
+  function setPanel(open){
+    panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
+    if(open){panel.querySelector('input:checked').focus();}else{btn.focus();}
+  }
+  btn.addEventListener('click',function(){setPanel(panel.hidden);});
+  function toggleMenu(o){nav.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',String(o));}
+  menuBtn.addEventListener('click',function(){toggleMenu(!nav.classList.contains('open'));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    if(!panel.hidden)setPanel(false);
+    else if(nav.classList.contains('open')){toggleMenu(false);menuBtn.focus();}
+  });
+
+  /* ---- Hilo de lectura con aguja ---- */
+  var bar=document.getElementById('progress'),needle=document.getElementById('needle');
+  function prog(){
+    var h=document.documentElement,m=h.scrollHeight-h.clientHeight,p=m>0?h.scrollTop/m:0;
+    bar.style.transform='scaleX('+p+')';
+    needle.style.transform='translateX('+(p*(h.clientWidth-30))+'px)';
+  }
+  addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog);prog();
+
+  /* ---- Sección activa ---- */
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  if('IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){
+        if(l.getAttribute('href')==='#'+e.target.id)l.setAttribute('aria-current','true');else l.removeAttribute('aria-current');});}});
+    },{rootMargin:'-40% 0px -55% 0px'});
+    links.forEach(function(l){var t=document.querySelector(l.getAttribute('href'));if(t)io2.observe(t);});
+  }
+
+  /* ---- Pestañas accesibles (patrón WAI-ARIA) ---- */
+  document.querySelectorAll('[data-tabs]').forEach(function(box){
+    var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));
+    var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'));});
+    function select(i,focus,first){
+      tabs.forEach(function(t,k){
+        var on=k===i;
+        t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;
+        panels[k].hidden=!on;
+        panels[k].classList.remove('tp-anim');
+        if(on&&!first){void panels[k].offsetWidth;panels[k].classList.add('tp-anim');}
+      });
+      if(focus)tabs[i].focus();
+      box.style.setProperty('--i',i);
+      tabs.forEach(function(t,k){t.classList.toggle('is-done',k<i);});
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){select(i,false);});
+      t.addEventListener('keydown',function(e){
+        var k=e.key,n=tabs.length,j=null;
+        if(k==='ArrowRight'||k==='ArrowDown')j=(i+1)%n;
+        else if(k==='ArrowLeft'||k==='ArrowUp')j=(i-1+n)%n;
+        else if(k==='Home')j=0;else if(k==='End')j=n-1;
+        if(j!==null){e.preventDefault();select(j,true);}
+      });
+    });
+    select(0,false,true);
+  });
+
+  /* ---- Escuchar sección (Web Speech API) ---- */
+  var synth=window.speechSynthesis,current=null,LBL='Escuchar esta sección';
+  function resetListen(){
+    document.querySelectorAll('.listen').forEach(function(x){x.setAttribute('aria-pressed','false');x.querySelector('span').textContent=LBL;});
+    current=null;
+  }
+  document.querySelectorAll('.listen').forEach(function(b){
+    if(!synth||!window.SpeechSynthesisUtterance){b.hidden=true;return;}
+    b.addEventListener('click',function(){
+      var wasThis=current===b;
+      synth.cancel();resetListen();
+      if(wasThis)return;
+      var sec=document.getElementById(b.dataset.speak);
+      var clone=sec.cloneNode(true);
+      clone.querySelectorAll('.listen,script,[aria-hidden="true"],details,.src,.tablist,.nojs,.sr-only').forEach(function(n){n.remove();});
+      var u=new SpeechSynthesisUtterance(clone.textContent.replace(/\s+/g,' ').trim());
+      u.lang='es-MX';
+      var vs=synth.getVoices();
+      var v=vs.filter(function(x){return /^es[-_]MX/i.test(x.lang);})[0]||vs.filter(function(x){return /^es/i.test(x.lang);})[0];
+      if(v)u.voice=v;
+      u.onend=u.onerror=function(){if(current===b)resetListen();};
+      current=b;b.setAttribute('aria-pressed','true');b.querySelector('span').textContent='Detener lectura';
+      synth.speak(u);
+    });
+  });
+  addEventListener('pagehide',function(){if(synth)synth.cancel();});
+
+  /* ---- Formulario ---- */
+  var form=document.getElementById('form'),summary=document.getElementById('summary'),list=document.getElementById('summaryList'),done=document.getElementById('done');
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function check(el){
+    var ok=el.type==='checkbox'?el.checked:el.type==='email'?emailRe.test(el.value.trim()):el.value.trim()!=='';
+    var box=el.closest('.field'),err=document.getElementById('e-'+el.id);
+    if(box)box.classList.toggle('invalid',!ok);else if(err)err.style.display=ok?'none':'block';
+    el.setAttribute('aria-invalid',ok?'false':'true');
+    return ok;
+  }
+  var req=[].slice.call(form.querySelectorAll('[required]'));
+  req.forEach(function(el){
+    el.addEventListener('blur',function(){if(el.value||el.type==='checkbox'||el.dataset.touched)check(el);el.dataset.touched='1';});
+    el.addEventListener('input',function(){if(el.getAttribute('aria-invalid')==='true')check(el);});
+    el.addEventListener('change',function(){if(el.getAttribute('aria-invalid')==='true')check(el);});
+  });
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var bad=req.filter(function(el){return !check(el);});
+    if(bad.length){
+      list.innerHTML='';
+      bad.forEach(function(el){
+        var lab=(el.type==='checkbox'?el.parentElement.querySelector('label'):form.querySelector('label[for="'+el.id+'"]')).firstChild.textContent.trim();
+        var li=document.createElement('li'),a=document.createElement('a');
+        a.href='#'+el.id;a.textContent=lab.replace(/\.$/,'');
+        a.addEventListener('click',function(e){e.preventDefault();el.focus();});
+        li.appendChild(a);list.appendChild(li);
+      });
+      summary.classList.add('show');summary.focus();
+      return;
+    }
+    summary.classList.remove('show');form.hidden=true;done.classList.add('show');done.focus();
+  });
+})();
+</script>
+</body>
+</html>
