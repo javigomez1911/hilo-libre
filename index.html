@@ -164,6 +164,7 @@ html[data-contrast="high"] .btn-primary{border-color:#000}
 .tag .ok{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal)}
 .tag .barcode{position:relative;margin-top:.9rem;height:2rem;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 14px)}
 @media (max-width:52rem){
+  .hero-thread{display:none}
   .hero{min-height:0;display:block}
   .hero .wrap{grid-template-columns:1fr;padding-block:2rem 2.5rem}
   .tag-stage{justify-self:start;width:min(100%,22rem)}
@@ -400,7 +401,7 @@ kbd{font:700 .85em var(--font-body);background:#fff;border:2px solid var(--ink);
 
 /* ---- Pie ---- */
 .foot{background:var(--indigo-950);color:var(--on-dark);padding-block:2.5rem 2rem;font-size:.85rem}
-.foot .cols{display:grid;grid-template-columns:1fr 2.4fr;gap:2rem}
+.foot .cols{display:block}
 .foot h2{font-size:var(--step-1);color:#fff;margin-bottom:.5rem}
 .foot h3{font-family:var(--font-body);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-bottom:.6rem}
 .foot ul{display:grid;gap:.45rem}
@@ -534,7 +535,7 @@ html[data-motion="off"] *{animation:none!important;transition:none!important}
 <!-- ================= HERO ================= -->
 <section class="hero" id="inicio" aria-labelledby="h1">
   <svg class="hero-thread" viewBox="0 0 1440 720" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path pathLength="1" d="M-20 610 C180 500 260 720 520 640 S860 420 980 380 S1100 250 1080 150"/>
+    <path pathLength="1" d="M820 730 C920 690 990 610 1070 550 S1250 470 1470 390"/>
   </svg>
   <div class="wrap">
     <div>
@@ -908,16 +909,6 @@ html[data-motion="off"] *{animation:none!important;transition:none!important}
         <h2>Hilo Libre</h2>
         <p style="max-width:32ch">Proveeduría textil hecha por mujeres en prisión y en libertad.</p>
         <p style="color:var(--on-dark-soft)">Maqueta de sitio web · Actividad 2<br>Ricardo Javier Colunga Gomez<br>Docente: Jorge Olmos Soria · UVM Monterrey</p>
-      </div>
-      <div>
-        <h3>Referencias (APA 7.ª ed.)</h3>
-        <ul>
-          <li>Instituto Nacional de Estadística y Geografía. (2021). <i>Encuesta Nacional de Población Privada de la Libertad (ENPOL) 2021</i>. <a href="https://www.inegi.org.mx/programas/enpol/2021/">https://www.inegi.org.mx/programas/enpol/2021/</a></li>
-          <li>Instituto Nacional de Estadística y Geografía. (2026, 16 de julio). <i>Censo Nacional de Sistema Penitenciario Federal y Estatales (CNSIPEF-E) 2026</i> [Comunicado de prensa]. <a href="https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/cnispee/CNSIPEF-E2025_CP.pdf">inegi.org.mx</a></li>
-          <li>CODESPA. (s. f.). <i>Los 3 tipos de negocios inclusivos</i>. <a href="https://www.codespa.org/leccion-3-negocios-inclusivos/">https://www.codespa.org/leccion-3-negocios-inclusivos/</a></li>
-          <li>La Cana. (s. f.). <i>Reinserción social de mujeres en prisión</i>. <a href="https://lacana.org/">https://lacana.org/</a></li>
-          <li>Récord. (2026, 7 de agosto). <i>¿Ya no podrán pedir la carta de antecedentes penales para conseguir trabajo en México?</i> <a href="https://www.record.com.mx/historia/ya-no-podran-pedir-la-carta-de-antecedentes-penales-para-conseguir-trabajo-en-mexico-2026080715422530855">record.com.mx</a></li>
-        </ul>
       </div>
     </div>
     <p class="fine">Cifras de población: INEGI. El piloto, la cartera de clientes, los precios y las metas son proyección propia del modelo de negocio (Actividad 1).</p>
