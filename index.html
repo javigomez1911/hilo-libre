@@ -193,8 +193,7 @@ html:not(.anim) .tk-list li{font-size:clamp(1rem,.8rem + .7vw,1.3rem);padding-bl
 html:not(.anim) .tk-list li::after{width:1.3rem;margin-inline:.85rem}
 html.anim .tk-list[aria-hidden="true"]{display:flex}
 html.anim .tk-btn{display:inline-flex}
-html.anim .tk-track{animation:marquee 46s linear infinite}
-html.anim .tk-track:hover,html.anim .ticker.paused .tk-track{animation-play-state:paused}
+html.anim .tk-track{animation:marquee 34s linear infinite}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ============================================================ SECCIONES */
@@ -932,7 +931,7 @@ html[data-motion="off"] *{animation:none!important;transition:none!important}
     root.setAttribute('data-contrast',prefs.contrast);
     root.setAttribute('data-spacing',prefs.spacing);
     root.setAttribute('data-motion',prefs.motion);
-    root.classList.toggle('anim',fullOK());root.classList.toggle('soft',mode()==='soft');
+    root.classList.toggle('anim',fullOK());if(typeof tkSync==='function')tkSync();root.classList.toggle('soft',mode()==='soft');
     var mh=document.getElementById('motionHint');if(mh)mh.hidden=!(mq.matches&&prefs.motion==='auto');
     ['size','contrast','spacing','motion'].forEach(function(n){
       var el=document.querySelector('input[name="'+n+'"][value="'+prefs[n]+'"]');if(el)el.checked=true;
@@ -1027,10 +1026,16 @@ html[data-motion="off"] *{animation:none!important;transition:none!important}
   }
 
   /* ---- Cinta de productos: se puede pausar ---- */
-  var tk=document.querySelector('.ticker'),tkb=document.getElementById('tkBtn'),tkt=document.getElementById('tkTxt');
+  var tk=document.querySelector('.ticker'),tkb=document.getElementById('tkBtn'),tkt=document.getElementById('tkTxt'),tkTrack=document.getElementById('tkTrack');
+  function tkSync(){
+    if(!tkTrack)return;
+    var p=tk.classList.contains('paused');
+    tkTrack.getAnimations().forEach(function(a){if(p)a.pause();else a.play();});
+  }
   tkb.addEventListener('click',function(){
     var p=tk.classList.toggle('paused');
     tkb.setAttribute('aria-pressed',String(p));tkt.textContent=p?'Reanudar':'Pausar';
+    tkSync();
   });
 
   /* ---- Panel de accesibilidad y menú ---- */
